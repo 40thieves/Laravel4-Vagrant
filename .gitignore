@@ -36,7 +36,6 @@ dwsync.xml
 .svn
 .CVS
 .idea
-/www/bootstrap/compiled.php
-/www/vendor
+/www/*
 composer.phar
 composer.lock
