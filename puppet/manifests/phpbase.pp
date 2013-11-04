@@ -20,7 +20,7 @@ include php55 #specific setup steps for 5.5
 include php
 include apache
 include mysql
-include phpmyadmin
+# include phpmyadmin
 include beanstalkd
 include redis
 include memcached
