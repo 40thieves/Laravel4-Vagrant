@@ -12,11 +12,11 @@ class php
         "php5-gd",
         "php5-curl",
         "libapache2-mod-php5",
-        "php5-xdebug",
+        "php5-xdebug"
         # "php5-memcache",
         # "php5-memcached",
-        "php5-pgsql",
-        "php5-sqlite"
+        # "php5-pgsql",
+        # "php5-sqlite"
     ]
 
     package
