@@ -14,7 +14,6 @@ Vagrant::Config.run do |config|
 
         lv4_config.vm.forward_port 80, 8888
         lv4_config.vm.forward_port 3306, 8889
-        #lv4_config.vm.forward_port 5432, 5433
 
         lv4_config.vm.host_name = "laravel"
 

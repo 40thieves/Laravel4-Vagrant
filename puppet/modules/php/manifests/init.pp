@@ -13,10 +13,6 @@ class php
         "php5-curl",
         "libapache2-mod-php5",
         "php5-xdebug"
-        # "php5-memcache",
-        # "php5-memcached",
-        # "php5-pgsql",
-        # "php5-sqlite"
     ]
 
     package
@@ -25,12 +21,6 @@ class php
             ensure  => latest,
             require => [Exec['apt-get update'], Package['python-software-properties']]
     }
-
-    # exec
-    # {
-    #     "sed -i 's|#|//|' /etc/php5/cli/conf.d/mcrypt.ini":
-        #     require => Package['php5'],
-    # }
 
     file
     {
