@@ -26,6 +26,7 @@ include mysql
 # include memcached
 
 include laravel_app
+# include github_app
 
 # class { 'postgresql::server':
 #   config_hash => {
