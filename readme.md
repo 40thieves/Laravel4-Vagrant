@@ -1,21 +1,20 @@
 # Laravel 4 w/ Vagrant
 
 A basic Ubuntu 12.04 Vagrant setup with [Laravel4](http://laravel.com/docs) and PHP 5.5.
-PHP 5.4 w/ Apache 2.2 is available on the php54 branch.
 
-## Requirements
+### Custom changes
+A more stripped down version of [bryannielsen's](https://github.com/bryannielsen/Laravel4-Vagrant) Laravel 4 Vagrant box. I stripped out phpmyadmin, beanstalkd, redis, postgresql and memcached, mainly because I don't use them (if you want them go hit up his repo). Plus it was a good excuse to mess around with Vagrant/Puppet.
 
-* VirtualBox - Free virtualization software [Download Virtualbox](https://www.virtualbox.org/wiki/Downloads)
-* Vagrant **1.3+** - Tool for working with virtualbox images [Download Vagrant](https://www.vagrantup.com)
-* Git - Source Control Management [Download Git](http://git-scm.com/downloads)
+Additional changes I made - added a new module, `github_app` that pulls an existing Laravel repo from Github. You just need drop in the relevant Github url.
+
+Quick note: I've had occasional issues creating the vm, when creating the Laravel app itself. It's possible that it's timing out, but I'm not an expert so any advice is appreciated.
 
 ## Setup
 
-
-* Clone this repository `git clone http://github.com/bryannielsen/Laravel4-Vagrant.git`
-* run `vagrant up` inside the newly created directory
-* (the first time you run vagrant it will need to fetch the virtual box image which is ~300mb so depending on your download speed this could take some time)
-* Vagrant will then use puppet to provision the base virtual box with our LAMP stack (this could take a few minutes) also note that composer will need to fetch all of the packages defined in the app's composer.json which will add some more time to the first provisioning run
+* Clone this repository `git clone http://github.com/40thieves/Laravel4-Vagrant.git`
+* Run `vagrant up` inside the newly created directory
+* (The first time you run `vagrant` it will need to fetch the virtual box image which is ~300mb so depending on your download speed this could take some time)
+* Vagrant will then use Puppet to provision the base virtual box with our LAMP stack (this could take a few minutes) also note that composer will need to fetch all of the packages defined in the app's composer.json which will add some more time to the first provisioning run
 * You can verify that everything was successful by opening http://localhost:8888 in a browser
 
 *Note: You may have to change permissions on the www/app/storage folder to 777 under the host OS* 
@@ -30,19 +29,12 @@ Some basic information on interacting with the vagrant box
 
 * 8888 - Apache
 * 8889 - MySQL 
-* 5433 - PostgreSQL
 
-
-### Default MySQL/PostgreSQL Database
+### Default MySQL Database
 
 * User: root
 * Password: (blank)
 * DB Name: database
-
-
-### PHPmyAdmin
-
-Accessible at http://localhost:8888/phpmyadmin using MySQL access credentials above.
 
 ### PHP XDebug
 
@@ -73,13 +65,10 @@ Vagrant is [very well documented](http://vagrantup.com/v1/docs/index.html) but h
 * `vagrant ssh` gives you shell access to the virtual machine
 
 ----
+
 ##### Virtual Machine Specifications #####
 
 * OS     - Ubuntu 12.04
 * Apache - 2.4.6
 * PHP    - 5.5.4
 * MySQL  - 5.5.32
-* PostgreSQL - 9.1
-* Beanstalkd - 1.4.6
-* Redis - 2.2.12
-* Memcached - 1.4.13
