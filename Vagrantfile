@@ -12,6 +12,9 @@ Vagrant::Config.run do |config|
         #lv4_config.vm.customize ["modifyvm", :id, "--rtcuseutc", "on"]
         lv4_config.ssh.max_tries = 10
 
+        # Allows the VM to auth with github to clone repos etc.
+        lv4_config.ssh.forward_agent = true
+
         lv4_config.vm.forward_port 80, 8888
         lv4_config.vm.forward_port 3306, 8889
 
